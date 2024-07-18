@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en,ina">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <title>Kalkulator BMI</title>
+    <meta name="description" content="Hitung berat badan ideal Anda dengan Kalkulator BMI.">
+    <meta name="keywords" content="BMI, Kalkulator BMI, Berat Badan Ideal, Kesehatan">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/4a75488160.js" crossorigin="anonymous"></script>
 </head>
+    
 <body>
     <!-- Main Title -->
     <header class="main-title">
@@ -27,49 +31,53 @@
             <!-- Form -->
             <section>
                 <form>
-                    <div class="input-title">Jenis Kelamin</div>
-                    <div class="gender-selection">
-                        
-                        <input type="radio" name="gender" id="selection-man" value="pria" checked>
-                        <label for="selection-man">Laki-Laki</label>
-
-                        <input type="radio" name="gender" id="selection-woman" value="wanita">
-                        <label for="selection-woman">Perempuan</label>
-                    </div>
-
+                    <fieldset>
+                        <legend class="input-title">Jenis Kelamin</legend>
+                        <div class="gender-selection">
+                            <input type="radio" name="gender" id="selection-man" value="pria" checked>
+                            <label for="selection-man">Laki-Laki</label>
+                
+                            <input type="radio" name="gender" id="selection-woman" value="wanita">
+                            <label for="selection-woman">Perempuan</label>
+                        </div>
+                    </fieldset>
+                
                     <div class="weight">
                         <label for="weight" class="title">Berat Badan (kg)</label>
-                        <input type="number" name="weight" id="weight" value="0">
+                        <input type="number" name="weight" id="weight" value="" required aria-required="true">
                     </div>
-
+                
                     <div>
                         <label for="age" class="title">Usia (th)</label>
-                        <input type="number" name="age" id="age" value="0">
+                        <input type="number" name="age" id="age" value="" required aria-required="true">
                     </div>
-
+                
                     <div>
                         <label for="height" class="title">Tinggi Badan (cm)</label>
-                        <input type="number" name="height" id="height" value="0">
+                        <input type="number" name="height" id="height" value="" required aria-required="true">
                     </div>
-
+                
                     <div>
-                        <button type="button" onclick="calculateBMI()" class="button submit">Submit BMI</button>
+                        <button type="button" onclick="validateAndCalculateBMI()" class="button submit">Submit BMI</button>
                         <button type="reset" class="button reset">Reset</button>
                     </div> 
-
-                </form>
+                </form>                
             </section>
 
-            <!-- Form Article
-            <section>
+            <!-- Form Article -->
+            <section class="features">
                 <header>
                     <h2>Keunggulan Fitur</h2>
                 </header>
 
                 <article>
-                    <p>Lorem ipsum dolor sit amet...</p>
+                    <ol>
+                        <li>Menghitung berat badan</li>
+                        <li>Menentukan kategori berat badan ideal atau tidak</li>
+                        <li>Mempersiapkan program penurunan berat badan</li>
+                    </ol>
                 </article>
-            </section>-->
+            </section>
         </section>
 
         <!-- Right Content -->
@@ -77,29 +85,49 @@
             <!-- Result Article-->
             <article class="result">
                <header>
-                   <h1>Result</h1>
+                   <h2>Hasil</h2>
                </header>
 
                <!-- Result Section-->
-               <section class="result-section">
-                    <p>Hasil Result Adalah:</p>
-
-                    <h2 id="bmiValue">0</h2>
-
-                    <p id="bmiResult">...</p>
-               </section>
+                <div class="result-section">
+                    <h2 id="bmiValue">0.0</h2>
+                    <p id="bmiResult">Anda memiliki berat badan ideal.</p>
+                    <button class="button submit">Download Hasil BMI</button>
+                </div>
 
                <!-- General Information -->
-               <section></section>
+                <section class="result-description">
+                    <p id="bmiDescription"></p>
+                    <button class="button submit">Konsultasi Ahli Gizi Via Aplikasi</button>
+                <button class="button submit">Registrasi Online Ahli Gizi</button>
+                </section>
+
+                <section class="disease-info">
+                    <h3>Beberapa penyakit yang berasal dari kegemukan</h3>
+                    <ul>
+                        <li>Diabetes</li>
+                        <li>Hipertensi</li>
+                        <li>Sakit Jantung</li>
+                        <li>Osteoarthritis</li>
+                    </ul>
+                    <button class="button submit">Konsultasi Dokter Via Aplikasi</button>
+                    <button class="button submit">Registrasi Online Sekarang</button>
+                </section>
             </article>
         </section>
+
+        <!-- icon theme -->
+
+        <button id="theme-toggle" class="button-bubble theme">
+            <i class="fa-solid fa-eye"></i>
+        </button>
 
     </main>
 
     <footer>
 
     </footer>
-    <script src="JS/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
